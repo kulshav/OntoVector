@@ -21,4 +21,10 @@ class DatabaseSettings(Base):
         return f"postgresql+psycopg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
 
 
+class DataSettings(Base):
+
+    raw_data_dir: str
+
+
 db_settings = DatabaseSettings()
+data_settings = DataSettings()
