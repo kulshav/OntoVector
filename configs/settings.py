@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Base(BaseSettings):
-    model_config = SettingsConfigDict(env_file='.env', extra="ignore")
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
 class DatabaseSettings(Base):
@@ -22,8 +22,8 @@ class DatabaseSettings(Base):
 
 
 class DataSettings(Base):
-
-    raw_data_dir: str
+    data_directory: str
+    csv_storage: str
 
 
 db_settings = DatabaseSettings()
