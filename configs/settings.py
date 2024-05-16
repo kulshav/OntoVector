@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Base(BaseSettings):
-    model_config = SettingsConfigDict(env_file='.env', extra="ignore")
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
 
 class DatabaseSettings(Base):
@@ -21,4 +21,10 @@ class DatabaseSettings(Base):
         return f"postgresql+psycopg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
 
 
+class DataSettings(Base):
+    data_directory: str
+    csv_storage: str
+
+
 db_settings = DatabaseSettings()
+data_settings = DataSettings()
